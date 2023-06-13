@@ -50,27 +50,6 @@ jobs:
           name: win-x64
           path: build\x64\${{ github.event.inputs.ReleaseType || 'Release' }}\*
 
-      - name: Upload win-x86 ${{ github.event.inputs.ReleaseType || 'Release' }}
-        uses: actions/upload-artifact@v3
-        if: matrix.os == 'windows-latest'
-        with:
-          name: win-x86
-          path: build\x86\${{ github.event.inputs.ReleaseType || 'Release' }}\*
-
-      - name: Upload win-arm ${{ github.event.inputs.ReleaseType || 'Release' }}
-        uses: actions/upload-artifact@v3
-        if: matrix.os == 'windows-latest'
-        with:
-          name: win-arm
-          path: build\ARM\${{ github.event.inputs.ReleaseType || 'Release' }}\*
-
-      - name: Upload win-arm64 ${{ github.event.inputs.ReleaseType || 'Release' }}
-        uses: actions/upload-artifact@v3
-        if: matrix.os == 'windows-latest'
-        with:
-          name: win-arm64
-          path: build\ARM64\${{ github.event.inputs.ReleaseType || 'Release' }}\*
-
       - name: Upload Linux ${{ github.event.inputs.ReleaseType || 'Release' }}
         uses: actions/upload-artifact@v3
         if: matrix.os == 'ubuntu-latest'
