@@ -1,8 +1,7 @@
 @setlocal
 @echo off
 
-set CIMGUI_ROOT=%~dp0cimgui
-set CIMNODES_ROOT=%~dp0cimnodes
+set SCRIPT_PATH=%~dp0
 set BUILD_CONFIG=Debug
 set BUILD_ARCH=x64
 set BUILD_CMAKE_GENERATOR_PLATFORM=x64
@@ -19,20 +18,7 @@ shift
 goto ArgLoop
 
 :Build
-pushd %CIMGUI_ROOT%
-
-If NOT exist ".\build\%BUILD_ARCH%" (
-  mkdir build\%BUILD_ARCH%
-)
-pushd build\%BUILD_ARCH%
-cmake -DCMAKE_GENERATOR_PLATFORM=%BUILD_CMAKE_GENERATOR_PLATFORM% ..\..
-
-echo Calling cmake --build . --config %BUILD_CONFIG%
-cmake --build . --config %BUILD_CONFIG%
-popd
-popd
-
-pushd %CIMNODES_ROOT%
+pushd %SCRIPT_PATH%
 
 If NOT exist ".\build\%BUILD_ARCH%" (
   mkdir build\%BUILD_ARCH%
