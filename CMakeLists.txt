@@ -7,6 +7,8 @@ project(cimgui)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_definitions(-DIMNODES_NAMESPACE=imnodes)
+
 include_directories(cimgui/imgui
     cimgui)
 
